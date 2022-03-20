@@ -34,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               _titleWidget(),
               _loginForm(),
               _loginButton(),
+              _registerPageLink(),
             ],
           )),
         ),
@@ -54,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginForm() {
     return Container(
-      height: _deviceHeight! * 0.20,
+      height: _deviceHeight! * 0.21,
       child: Form(
           key: _loginFormKey,
           child: Column(
@@ -71,9 +72,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _emailTextField() {
     return TextFormField(
-      decoration: const InputDecoration(
-        hintText: "Email",
-      ),
+      decoration: const InputDecoration(hintText: "Email..."),
       onSaved: (_value) {
         setState(() {
           _email = _value;
@@ -84,30 +83,29 @@ class _LoginPageState extends State<LoginPage> {
           RegExp(
               r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"),
         );
-        return _result ? null : "Please enter a valid email address";
+        return _result ? null : "Please enter a valid email";
       },
     );
   }
 
   Widget _passwordTextField() {
     return TextFormField(
-        obscureText: true,
-        decoration: const InputDecoration(
-          hintText: "Password",
-        ),
-        onSaved: (_value) {
-          setState(() {
-            _password = _value;
-          });
-        },
-        validator: (_value) => _value!.length > 6
-            ? null
-            : "Please enter a password greater than 6 characters");
+      obscureText: true,
+      decoration: const InputDecoration(hintText: "Password..."),
+      onSaved: (_value) {
+        setState(() {
+          _password = _value;
+        });
+      },
+      validator: (_value) => _value!.length > 6
+          ? null
+          : "Please enter a password greater than 6 characters.",
+    );
   }
 
   Widget _loginButton() {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: _loginUser,
       minWidth: _deviceWidth! * 0.70,
       height: _deviceHeight! * 0.06,
       color: Colors.red,
@@ -120,5 +118,24 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Widget _registerPageLink() {
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, 'register'),
+      child: const Text(
+        "Don't have an account?",
+        style: TextStyle(
+          color: Colors.blue,
+          fontSize: 15,
+          fontWeight: FontWeight.w200,
+        ),
+      ),
+    );
+  }
+
+  void _loginUser() {
+    print(_loginFormKey.currentState!.validate());
+    if (_loginFormKey.currentState!.validate()) {}
   }
 }
