@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nodasgram/pages/log_in_page.dart';
+import 'package:nodasgram/pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: Scaffold(),
+      initialRoute: "login",
+      routes: {
+        "register": (context) => RegisterPage(),
+        "login": (context) => LoginPage(),
+      },
     );
   }
 }
