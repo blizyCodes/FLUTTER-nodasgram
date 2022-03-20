@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "339936811283",
+    "project_id": "instagramclone-564b5",
+    "storage_bucket": "instagramclone-564b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339936811283:android:85bbe7c4a53b94da4562e6",
+        "android_client_info": {
+          "package_name": "com.example.nodasgram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339936811283-r46235rdvtvf1fu25d0rq7b59uobe6pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3BNvnOF8a5-ChXfyXNj4PR-PGlLiXZEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339936811283-r46235rdvtvf1fu25d0rq7b59uobe6pa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "339936811283-nf1cib6vavkfuefs280v47jf7psrppvf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nodasgram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

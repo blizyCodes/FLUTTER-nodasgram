@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:nodasgram/pages/home_page.dart';
 import 'package:nodasgram/pages/log_in_page.dart';
 import 'package:nodasgram/pages/register_page.dart';
+import "package:nodasgram/services/firebase_service.dart";
+import "package:firebase_core/firebase_core.dart";
+import "package:get_it/get_it.dart";
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  GetIt.instance.registerSingleton<FirebaseService>(
+    FirebaseService(),
+  );
   runApp(const MyApp());
 }
 
@@ -17,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      initialRoute: "home",
+      initialRoute: "login",
       routes: {
         "register": (context) => RegisterPage(),
         "login": (context) => LoginPage(),
